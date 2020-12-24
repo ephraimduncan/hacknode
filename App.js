@@ -1,13 +1,12 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import Tab from './src/navigation/Tab';
+import { ApolloProvider } from '@apollo/client';
+import client from './src/graphql/Client';
+import Main from './src/navigation/Main';
 
 export default function App() {
     return (
-        <NavigationContainer>
-            <Tab />
-            <StatusBar style='auto' />
-        </NavigationContainer>
+        <ApolloProvider client={client}>
+            <Main />
+        </ApolloProvider>
     );
 }

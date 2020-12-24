@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
-import HomeScreen from '../screens/Home';
-import FeaturedScreen from '../screens/Featured';
-import RecentsScreen from '../screens/Recent';
-import BookmarkScreen from '../screens/Bookmark';
+import HomeScreen from '../screens/HomeScreen';
+import FeaturedScreen from '../screens/FeaturedScreen';
+import RecentsScreen from '../screens/RecentScreen';
+import BookmarkScreen from '../screens/BookmarkScreen';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
