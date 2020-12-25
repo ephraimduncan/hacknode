@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { View, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
 
-const FEATURED_QUERY = gql`
+const BEST_QUERY = gql`
     query Featured($page: Int) {
-        storiesFeed(type: FEATURED, page: $page) {
+        storiesFeed(type: BEST, page: $page) {
             _id
             author {
                 name
@@ -19,7 +19,7 @@ const FEATURED_QUERY = gql`
 
 function Home() {
     const [page, setPage] = useState(0);
-    const { data, loading } = useQuery(FEATURED_QUERY, { variables: { page } });
+    const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
 
     useEffect(() => {
         console.log(data);
@@ -27,7 +27,7 @@ function Home() {
 
     if (loading) {
         // Use hashnode svg as a spinner
-        return <ActivityIndicator />;
+        return <Text>Loading...</Text>;
     }
 
     return (
