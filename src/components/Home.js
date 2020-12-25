@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { View, Text, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
+import NavigationButtons from './NavigationButtons';
 
 const BEST_QUERY = gql`
     query Best($page: Int) {
@@ -28,6 +29,10 @@ function Home() {
         return <Text>Loading...</Text>;
     }
 
+    if (!loading && data.storiesFeed === []) {
+        return <Text>No Text Available</Text>;
+    }
+
     return (
         <View
             style={{
@@ -47,6 +52,12 @@ function Home() {
                         />
                     );
                 }}
+                ListFooterComponent={
+                    <NavigationButtons
+                        goToNext={() => setPage(page + 1)}
+                        goToPrevious={() => setPage(page - 1 < 0 ? 0 : page - 1)}
+                    />
+                }
             />
         </View>
     );

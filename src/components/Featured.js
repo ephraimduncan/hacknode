@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { View, Text, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
+import NavigationButtons from './NavigationButtons';
 
 const FEATURED_QUERY = gql`
     query Featured($page: Int) {
@@ -49,6 +50,12 @@ function Home() {
                         />
                     );
                 }}
+                ListFooterComponent={
+                    <NavigationButtons
+                        goToNext={() => setPage(page + 1)}
+                        goToPrevious={() => setPage(page - 1 < 0 ? 0 : page - 1)}
+                    />
+                }
             />
         </View>
     );
