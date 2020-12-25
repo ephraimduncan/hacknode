@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
+import Loading from './Loading';
 import NavigationButtons from './NavigationButtons';
 
 const BEST_QUERY = gql`
@@ -27,8 +28,7 @@ function Home() {
     }, [data]);
 
     if (loading) {
-        // Use hashnode svg as a spinner
-        return <Text>Loading...</Text>;
+        return <Loading />;
     }
 
     return (

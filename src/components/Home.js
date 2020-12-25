@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Animated, Image } from 'react-native';
 import BlogCard from './BlogCard';
 import NavigationButtons from './NavigationButtons';
+import Loading from './Loading';
 
 const BEST_QUERY = gql`
     query Best($page: Int) {
@@ -25,20 +26,11 @@ function Home() {
     useEffect(() => {}, [data]);
 
     if (loading) {
-        // Use hashnode svg as a spinner
-        return <Text>Loading...</Text>;
-    }
-
-    if (!loading && data.storiesFeed === []) {
-        return <Text>No Text Available</Text>;
+        return <Loading />;
     }
 
     return (
-        <View
-            style={{
-                backgroundColor: '#FAF4F4',
-            }}
-        >
+        <View>
             <FlatList
                 data={data.storiesFeed}
                 keyExtractor={(item) => item._id}

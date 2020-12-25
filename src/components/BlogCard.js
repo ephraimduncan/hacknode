@@ -32,9 +32,8 @@ const BlogCard = ({ title, authorImage, authorName, totalReactions }) => {
 const styles = StyleSheet.create({
     topView: {
         padding: 10,
-        borderRadius: 6,
-        borderBottomWidth: 1,
-        borderBottomColor: '#EBA8B1',
+        borderBottomWidth: 2,
+        borderBottomColor: 'lightgray',
     },
     marginBtn: {
         marginBottom: 5,
