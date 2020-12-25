@@ -9,9 +9,13 @@ const BlogCard = ({ title, authorImage, authorName, totalReactions }) => {
             <View style={styles.btnAlignment}>
                 <View style={styles.rowCenter}>
                     <Image
-                        source={{
-                            uri: authorImage,
-                        }}
+                        source={
+                            authorImage
+                                ? {
+                                      uri: authorImage,
+                                  }
+                                : require('../../assets/hashnode.png')
+                        }
                         style={styles.profileImage}
                     />
                     <Text style={styles.authorName}>{authorName}</Text>
@@ -27,7 +31,7 @@ const BlogCard = ({ title, authorImage, authorName, totalReactions }) => {
 
 const styles = StyleSheet.create({
     topView: {
-        padding: 15,
+        padding: 10,
         borderRadius: 6,
         borderBottomWidth: 1,
         borderBottomColor: '#EBA8B1',
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#2962ff',
         opacity: 90,
-        margin: 5,
+        marginBottom: 5,
     },
     btnAlignment: {
         flexDirection: 'row',
