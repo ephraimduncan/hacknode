@@ -4,7 +4,7 @@ import { View, Text, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
 
 const BEST_QUERY = gql`
-    query Featured($page: Int) {
+    query Best($page: Int) {
         storiesFeed(type: BEST, page: $page) {
             _id
             author {
@@ -21,9 +21,7 @@ function Home() {
     const [page, setPage] = useState(0);
     const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
 
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    useEffect(() => {}, [data]);
 
     if (loading) {
         // Use hashnode svg as a spinner
