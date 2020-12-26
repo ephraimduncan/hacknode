@@ -32,11 +32,7 @@ function Home() {
     }
 
     return (
-        <View
-            style={{
-                backgroundColor: '#FAF4F4',
-            }}
-        >
+        <View>
             <FlatList
                 data={data.storiesFeed}
                 keyExtractor={(item) => item._id}
