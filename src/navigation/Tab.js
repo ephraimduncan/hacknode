@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import FeaturedScreen from '../screens/FeaturedScreen';
