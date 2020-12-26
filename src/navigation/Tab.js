@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import FeaturedScreen from '../screens/FeaturedScreen';
 import RecentsScreen from '../screens/RecentScreen';
 import BookmarkScreen from '../screens/BookmarkScreen';
-import BlogScreen from '../screens/BlogScreen';
+import BlogScreen from '../components/Blog';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 

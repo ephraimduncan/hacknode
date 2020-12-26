@@ -15,6 +15,7 @@ const BEST_QUERY = gql`
             }
             title
             totalReactions
+            slug
         }
     }
 `;
@@ -42,7 +43,7 @@ function Home({ navigation }) {
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
                             toBlogScreen={() =>
-                                navigation.navigate('Blog', { title: item.title })
+                                navigation.navigate('Blog', { slug: item.slug })
                             }
                         />
                     );
@@ -54,6 +55,7 @@ function Home({ navigation }) {
                     />
                 }
             />
+            <Text>Hi</Text>
         </View>
     );
 }
