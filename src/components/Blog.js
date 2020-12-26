@@ -9,6 +9,7 @@ import {
     StatusBar,
     TouchableOpacity,
     Linking,
+    Share,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import Loading from './Loading';
@@ -23,6 +24,7 @@ const BLOG_QUERY = gql`
                 name
                 photo
                 blogHandle
+                publicationDomain
             }
             tags {
                 logo
@@ -35,6 +37,16 @@ const BLOG_QUERY = gql`
 function BlogScreen({ route }) {
     const { slug } = route.params;
     const { data, loading } = useQuery(BLOG_QUERY, { variables: { slug } });
+
+    async function onShare(url) {
+        try {
+            await Share.share({
+                message: url,
+            });
+        } catch (error) {
+            alert(error.message);
+        }
+    }
 
     useEffect(() => {}, [data]);
 
@@ -91,7 +103,18 @@ function BlogScreen({ route }) {
                     <TouchableOpacity>
                         <Feather name='bookmark' size={30} color='#8E8E8F' />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => {
+                            const username = data.post.author.blogHandle;
+                            const publicationDomain = data.post.author.publicationDomain;
+
+                            const url = publicationDomain
+                                ? `https://${publicationDomain}`
+                                : `https://${username}.hashnode.dev`;
+
+                            return onShare(url);
+                        }}
+                    >
                         <Feather name='share' size={30} color='#8E8E8F' />
                     </TouchableOpacity>
                 </View>
