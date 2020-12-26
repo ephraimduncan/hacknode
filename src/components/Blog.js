@@ -10,6 +10,7 @@ import {
     TouchableOpacity,
     Linking,
 } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import Loading from './Loading';
 import Markdown from 'react-native-markdown-display';
 
@@ -86,6 +87,14 @@ function BlogScreen({ route }) {
                     <Text style={styles.authorName}>{data.post.author.name}</Text>
                 </TouchableOpacity>
                 <Markdown style={markdownStyles}>{data.post.contentMarkdown}</Markdown>
+                <View style={styles.postBtn}>
+                    <TouchableOpacity>
+                        <Feather name='bookmark' size={30} color='#8E8E8F' />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Feather name='share' size={30} color='#8E8E8F' />
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </View>
     );
@@ -167,7 +176,16 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 50,
     },
-    authorName: { paddingLeft: 10, fontSize: 17 },
+    authorName: {
+        paddingLeft: 10,
+        fontSize: 17,
+    },
+    postBtn: {
+        padding: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
 });
 
 export default BlogScreen;

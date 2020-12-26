@@ -55,7 +55,6 @@ function Home({ navigation }) {
                     />
                 }
             />
-            <Text>Hi</Text>
         </View>
     );
 }
