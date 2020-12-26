@@ -15,17 +15,16 @@ const BEST_QUERY = gql`
             }
             title
             totalReactions
+            slug
         }
     }
 `;
 
-function Home() {
+function Recent({ navigation }) {
     const [page, setPage] = useState(0);
     const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
 
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    useEffect(() => {}, [data]);
 
     if (loading) {
         return <Loading />;
@@ -43,6 +42,9 @@ function Home() {
                             authorImage={item.author.photo}
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
+                            toBlogScreen={() =>
+                                navigation.navigate('Blog', { slug: item.slug })
+                            }
                         />
                     );
                 }}
@@ -57,4 +59,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Recent;

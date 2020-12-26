@@ -77,6 +77,13 @@ const styles = {
         fontWeight: 'bold',
     },
 
+    code_block: {
+        borderColor: '#ccc',
+        backgroundColor: '#ccc',
+        borderRadius: 6,
+        margin: 2,
+    },
+
     fence: {
         borderColor: '#ccc',
         backgroundColor: '#ccc',
