@@ -4,12 +4,11 @@ import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import FeaturedScreen from '../screens/FeaturedScreen';
 import RecentsScreen from '../screens/RecentScreen';
-import BookmarkScreen from '../screens/BookmarkScreen';
 import BlogScreen from '../components/Blog';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-function MyTabs() {
+function Tabs() {
     return (
         <Navigator
             initialRouteName='Best'
@@ -54,15 +53,6 @@ function MyTabs() {
                 }}
             />
             <Screen
-                name='Bookmarks'
-                component={BookmarkScreen}
-                options={{
-                    tabBarIcon: ({ color, size }) => (
-                        <Feather name='book' color={color} size={size} />
-                    ),
-                }}
-            />
-            <Screen
                 name='Blog'
                 component={BlogScreen}
                 options={{
@@ -73,4 +63,4 @@ function MyTabs() {
     );
 }
 
-export default MyTabs;
+export default Tabs;

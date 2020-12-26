@@ -100,9 +100,6 @@ function BlogScreen({ route }) {
                 </TouchableOpacity>
                 <Markdown style={markdownStyles}>{data.post.contentMarkdown}</Markdown>
                 <View style={styles.postBtn}>
-                    <TouchableOpacity>
-                        <Feather name='bookmark' size={30} color='#8E8E8F' />
-                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => {
                             const username = data.post.author.blogHandle;
@@ -206,7 +203,7 @@ const styles = StyleSheet.create({
     postBtn: {
         padding: 20,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         alignItems: 'center',
     },
 });
