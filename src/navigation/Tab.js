@@ -1,10 +1,11 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import FeaturedScreen from '../screens/FeaturedScreen';
 import RecentsScreen from '../screens/RecentScreen';
 import BookmarkScreen from '../screens/BookmarkScreen';
+import BlogScreen from '../screens/BlogScreen';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -16,6 +17,14 @@ function MyTabs() {
                 activeTintColor: '#2962ff',
                 showLabel: false,
             }}
+            // https://github.com/react-navigation/react-navigation/issues/5230#issuecomment-649206507
+            screenOptions={({ route }) => ({
+                tabBarButton: ['Blog'].includes(route.name)
+                    ? () => {
+                          return null;
+                      }
+                    : undefined,
+            })}
         >
             <Screen
                 name='Best'
@@ -53,6 +62,7 @@ function MyTabs() {
                     ),
                 }}
             />
+            <Screen name='Blog' component={BlogScreen} />
         </Navigator>
     );
 }

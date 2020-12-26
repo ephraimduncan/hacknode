@@ -1,31 +1,35 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-const BlogCard = ({ title, authorImage, authorName, totalReactions }) => {
+const BlogCard = ({ title, authorImage, authorName, totalReactions, toBlogScreen }) => {
     return (
-        <View style={styles.topView}>
-            <Text style={styles.title}>{title}</Text>
-            <View style={styles.btnAlignment}>
-                <View style={styles.rowCenter}>
-                    <Image
-                        source={
-                            authorImage
-                                ? {
-                                      uri: authorImage,
-                                  }
-                                : require('../../assets/hashnode.png')
-                        }
-                        style={styles.profileImage}
-                    />
-                    <Text style={styles.authorName}>{authorName}</Text>
-                </View>
-                <View style={styles.rowCenter}>
-                    <Feather name='thumbs-up' size={20} />
-                    <Text style={{ paddingLeft: 6, fontSize: 17 }}>{totalReactions}</Text>
+        <TouchableOpacity onPress={toBlogScreen}>
+            <View style={styles.topView}>
+                <Text style={styles.title}>{title}</Text>
+                <View style={styles.btnAlignment}>
+                    <View style={styles.rowCenter}>
+                        <Image
+                            source={
+                                authorImage
+                                    ? {
+                                          uri: authorImage,
+                                      }
+                                    : require('../../assets/hashnode.png')
+                            }
+                            style={styles.profileImage}
+                        />
+                        <Text style={styles.authorName}>{authorName}</Text>
+                    </View>
+                    <View style={styles.rowCenter}>
+                        <Feather name='thumbs-up' size={20} />
+                        <Text style={{ paddingLeft: 6, fontSize: 17 }}>
+                            {totalReactions}
+                        </Text>
+                    </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         color: '#2962ff',
         opacity: 90,

@@ -6,8 +6,8 @@ import Tab from './Tab';
 export default function Main() {
     return (
         <NavigationContainer>
-            <Tab />
             <StatusBar style='auto' />
+            <Tab />
         </NavigationContainer>
     );
 }

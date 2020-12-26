@@ -19,7 +19,7 @@ const BEST_QUERY = gql`
     }
 `;
 
-function Home() {
+function Home({ navigation }) {
     const [page, setPage] = useState(0);
     const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
 
@@ -41,6 +41,9 @@ function Home() {
                             authorImage={item.author.photo}
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
+                            toBlogScreen={() =>
+                                navigation.navigate('Blog', { title: item.title })
+                            }
                         />
                     );
                 }}
