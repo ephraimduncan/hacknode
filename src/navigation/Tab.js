@@ -62,7 +62,13 @@ function MyTabs() {
                     ),
                 }}
             />
-            <Screen name='Blog' component={BlogScreen} />
+            <Screen
+                name='Blog'
+                component={BlogScreen}
+                options={{
+                    tabBarVisible: false,
+                }}
+            />
         </Navigator>
     );
 }
