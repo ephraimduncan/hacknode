@@ -19,7 +19,11 @@ function Featured({ navigation }) {
     }
 
     return (
-        <View>
+        <View
+            style={{
+                backgroundColor: '#fff',
+            }}
+        >
             <FlatList
                 data={data.storiesFeed}
                 keyExtractor={(item) => item._id}

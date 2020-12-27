@@ -42,7 +42,8 @@ const BlogCard = ({
 
 const styles = StyleSheet.create({
     topView: {
-        margin: 8,
+        marginHorizontal: 10,
+        marginVertical: 5,
         padding: 10,
         borderRadius: 12,
     },
