@@ -14,25 +14,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import Loading from './Loading';
 import Markdown from 'react-native-markdown-display';
-
-const BLOG_QUERY = gql`
-    query BlogInfo($slug: String!) {
-        post(slug: $slug, hostname: "") {
-            title
-            coverImage
-            author {
-                name
-                photo
-                blogHandle
-                publicationDomain
-            }
-            tags {
-                logo
-            }
-            contentMarkdown
-        }
-    }
-`;
+import { BLOG_QUERY } from '../graphql/Queries';
 
 function BlogScreen({ route }) {
     const { slug } = route.params;
@@ -58,6 +40,7 @@ function BlogScreen({ route }) {
         <View
             style={{
                 flex: 1,
+                backgroundColor: '#fff',
             }}
         >
             <ScrollView

@@ -1,28 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { View, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
 import Loading from './Loading';
 import NavigationButtons from './NavigationButtons';
-
-const BEST_QUERY = gql`
-    query Featured($page: Int) {
-        storiesFeed(type: NEW, page: $page) {
-            _id
-            author {
-                name
-                photo
-            }
-            title
-            totalReactions
-            slug
-        }
-    }
-`;
+import { QUERY as RECENT_QUERY } from '../graphql/Queries';
 
 function Recent({ navigation }) {
     const [page, setPage] = useState(0);
-    const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
+    const { data, loading } = useQuery(RECENT_QUERY, {
+        variables: { page, type: 'NEW' },
+    });
 
     useEffect(() => {}, [data]);
 

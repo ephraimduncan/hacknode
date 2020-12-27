@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
-import { View, Text, FlatList, Animated, Image } from 'react-native';
+import { useQuery } from '@apollo/client';
+import { View, FlatList } from 'react-native';
 import BlogCard from './BlogCard';
 import NavigationButtons from './NavigationButtons';
 import Loading from './Loading';
-
-const BEST_QUERY = gql`
-    query Best($page: Int) {
-        storiesFeed(type: BEST, page: $page) {
-            _id
-            author {
-                name
-                photo
-            }
-            title
-            totalReactions
-            slug
-        }
-    }
-`;
+import { QUERY as BEST_QUERY } from '../graphql/Queries';
 
 function Home({ navigation }) {
     const [page, setPage] = useState(0);
-    const { data, loading } = useQuery(BEST_QUERY, { variables: { page } });
+    const { data, loading } = useQuery(BEST_QUERY, { variables: { page, type: 'BEST' } });
 
     useEffect(() => {}, [data]);
 
@@ -31,7 +17,11 @@ function Home({ navigation }) {
     }
 
     return (
-        <View>
+        <View
+            style={{
+                backgroundColor: '#fff',
+            }}
+        >
             <FlatList
                 data={data.storiesFeed}
                 keyExtractor={(item) => item._id}
