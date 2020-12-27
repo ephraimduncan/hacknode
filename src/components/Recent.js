@@ -30,6 +30,7 @@ function Recent({ navigation }) {
                             authorImage={item.author.photo}
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
+                            borderBtn='#FFEDD9'
                             toBlogScreen={() =>
                                 navigation.navigate('Blog', { slug: item.slug })
                             }

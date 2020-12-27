@@ -7,7 +7,17 @@ const { Navigator, Screen } = createStackNavigator();
 function FeaturedScreen() {
     return (
         <Navigator>
-            <Screen name='Featured' component={Featured} />
+            <Screen
+                name='Featured 🌟'
+                component={Featured}
+                options={{
+                    headerStyle: { backgroundColor: '#ECEAFF' },
+                    headerTintColor: '#313063',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+            />
         </Navigator>
     );
 }

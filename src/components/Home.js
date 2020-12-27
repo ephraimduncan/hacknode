@@ -32,6 +32,7 @@ function Home({ navigation }) {
                             authorImage={item.author.photo}
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
+                            borderBtn='#D9F5F8'
                             toBlogScreen={() =>
                                 navigation.navigate('Blog', { slug: item.slug })
                             }

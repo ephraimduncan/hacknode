@@ -30,6 +30,7 @@ function Featured({ navigation }) {
                             authorImage={item.author.photo}
                             authorName={item.author.name}
                             totalReactions={item.totalReactions}
+                            borderBtn='#ECEAFF'
                             toBlogScreen={() =>
                                 navigation.navigate('Blog', { slug: item.slug })
                             }

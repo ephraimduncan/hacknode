@@ -11,8 +11,8 @@ function HomeScreen() {
                 name='Best 🔥'
                 component={Home}
                 options={{
-                    headerStyle: { backgroundColor: '#EBA8B1' },
-                    headerTintColor: '#fff',
+                    headerStyle: { backgroundColor: '#D9F5F8' },
+                    headerTintColor: '#313063',
                     headerTitleStyle: {
                         fontWeight: 'bold',
                     },
@@ -23,3 +23,10 @@ function HomeScreen() {
 }
 
 export default HomeScreen;
+
+// D9F5F8 Lightgreen
+// FFEDD9 Lightorangered
+// ECEAFF lightviolet
+// 313063 Deepblue violet for title
+// FFE5E6 Lightred
+// 3450A1 Lightblue

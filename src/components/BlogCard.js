@@ -2,10 +2,17 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-const BlogCard = ({ title, authorImage, authorName, totalReactions, toBlogScreen }) => {
+const BlogCard = ({
+    title,
+    authorImage,
+    authorName,
+    totalReactions,
+    toBlogScreen,
+    borderBtn,
+}) => {
     return (
         <TouchableOpacity onPress={toBlogScreen}>
-            <View style={styles.topView}>
+            <View style={[styles.topView, { backgroundColor: borderBtn }]}>
                 <Text style={styles.title}>{title}</Text>
                 <View style={styles.btnAlignment}>
                     <View style={styles.rowCenter}>
@@ -21,7 +28,7 @@ const BlogCard = ({ title, authorImage, authorName, totalReactions, toBlogScreen
                         />
                         <Text style={styles.authorName}>{authorName}</Text>
                     </View>
-                    <View style={styles.rowCenter}>
+                    <View style={styles.rowCenter} opacity={0.7}>
                         <Feather name='thumbs-up' size={20} />
                         <Text style={{ paddingLeft: 6, fontSize: 17 }}>
                             {totalReactions}
@@ -35,17 +42,17 @@ const BlogCard = ({ title, authorImage, authorName, totalReactions, toBlogScreen
 
 const styles = StyleSheet.create({
     topView: {
+        margin: 8,
         padding: 10,
-        borderBottomWidth: 2,
-        borderBottomColor: 'lightgray',
+        borderRadius: 12,
     },
     marginBtn: {
         marginBottom: 5,
     },
     title: {
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: 'bold',
-        color: '#2962ff',
+        color: '#3450A1',
         opacity: 90,
         marginBottom: 5,
     },

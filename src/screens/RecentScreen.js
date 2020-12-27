@@ -7,7 +7,17 @@ const { Navigator, Screen } = createStackNavigator();
 function RecentsScreen() {
     return (
         <Navigator>
-            <Screen name='Recent' component={Recent} />
+            <Screen
+                name='Recent ⌛'
+                component={Recent}
+                options={{
+                    headerStyle: { backgroundColor: '#FFEDD9' },
+                    headerTintColor: '#313063',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+            />
         </Navigator>
     );
 }
